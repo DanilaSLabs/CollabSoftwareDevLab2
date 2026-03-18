@@ -91,10 +91,10 @@ int printMenu(){
     cout << "\nEnter the choice: ";
     cin >> choice;
 
-    if (choice < 0 || choice > 4){
+    if (choice < 0 || choice > 3){
       cout << "\nWrong choice, try again.";
     }
-  } while (choice < 0 || choice > 5);
+  } while (choice < 0 || choice > 3);
   return choice;
 }
 
