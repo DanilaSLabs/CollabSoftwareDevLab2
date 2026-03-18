@@ -166,6 +166,7 @@ int sumOddArray(const int arr[], const int size){
 }
 
 // If all the values in the array are positive return true
+// Returns false for any element that is zero or negative
 bool isAllPositive(const int arr[], const int size){
   for(int i = 0; i < size; i++){
     if (arr[i] <= 0){
