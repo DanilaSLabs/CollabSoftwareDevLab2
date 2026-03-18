@@ -59,6 +59,13 @@ int main() {
       case 3:
         displayArray(total, SIZE);
         break;
+      case 4:
+        if (isAllPositive(quantity, SIZE)){
+          cout << "\nAll elements of array is positive.";
+        } else {
+          cout << "\nAt least one elements is not positive.";
+        } 
+        break;
       // Exit
       case 0:
         // No code needed
@@ -86,6 +93,7 @@ int printMenu(){
     cout << "\n1) Enter quantity";
     cout << "\n2) Calculate total";
     cout << "\n3) Print total";
+    cout << "\n4) All positive?";
     cout << "\n0) Exit";
 
     cout << "\nEnter the choice: ";
@@ -159,7 +167,7 @@ int sumOddArray(const int arr[], const int size){
 
 // If all the values in the array are positive return true
 bool isAllPositive(const int arr[], const int size){
-  //@TODO: You will need to complete this. Including making the appropriate comment header
+  
   return 0;
 }
 
