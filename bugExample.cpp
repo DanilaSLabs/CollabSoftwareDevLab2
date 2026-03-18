@@ -53,7 +53,7 @@ int main() {
         break;
       // Calculate total
       case 2:
-        multArrays(quantity, total, price, SIZE);
+        multArrays(quantity, price, total, SIZE);
         break;
       // Print total
       case 3:
