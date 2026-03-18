@@ -168,12 +168,14 @@ int sumOddArray(const int arr[], const int size){
 // If all the values in the array are positive return true
 // Returns false for any element that is zero or negative
 bool isAllPositive(const int arr[], const int size){
+  bool res = true;
   for(int i = 0; i < size; i++){
     if (arr[i] <= 0){
-      return false;
+      res = false;
+      break;
     }
   }
-  return true;
+  return res;
 }
 
 // Finds the average of all the odd numbers in the array and stores this in the last argument
