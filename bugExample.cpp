@@ -26,8 +26,8 @@ const double VAT = 0.21;
 // Function prototypes
 int printMenu();
 void fillInArray(int[], const int);
-void multArrays(const int[], const int[], int[], const int);
-void displayArray(const int[], const int);
+void multArrays(const int[], const int[], int[][2], const int);
+void displayArray(const int[][2], const int);
 int sumOddArray(const int[], const int);
 bool isAllPositive(const int[], const int);
 bool avgOddArray(const int[], const int, double&);
@@ -53,7 +53,7 @@ int main() {
     price[i] = rand() % 41 + 10;
   }
   // Declare array quantity and total
-  int quantity[SIZE], total[SIZE];
+  int quantity[SIZE], total[SIZE][2];
 
   // Interactive menu
   do {
@@ -193,31 +193,38 @@ void fillInArray(int arr[], const int size){
  * @param arrTotal The array where the result will be stored (destination).
  * @param size The size of the arrays. 
  */
-void multArrays(const int arrQuantity[], const int arrPrice[], int arrTotal[], const int size){
+void multArrays(const int arrQuantity[], const int arrPrice[], int arrTotal[][2], const int size){
   assert (size > 0);
 
   for (int i = 0; i < size; ++i){
-    arrTotal[i] = static_cast<int>(arrQuantity[i] * arrPrice[i] * (1 + VAT));
+    int base = arrQuantity[i] * arrPrice[i];
+    arrTotal[i][0] = base; // No VAT
+    arrTotal[i][1] = static_cast<int>(base * (1 + VAT)); // with VAT
   }
 }
 
 /**
- * <code>displayArray</code> prints the value of each of the elements of the
- * array. In addition the function sums up the value of all the elements and
- * print the total.
+ * <code>displayArray</code> prints both values (without VAT and with VAT)
+ * for each element and calculates their totals.
  * <BR>
  * @param ar The array containing the values
  * @param size The size of the array.
  */
-void displayArray(const int arr[], const int size){
-  int sum = 0;
+void displayArray(const int arr[][2], const int size){
+  int sumNoVat = 0;
+  int sumWithVat = 0;
 
   for (int i = 0; i < size; ++i){
-    cout << "\nValue at " << i << ": " << arr[i];
-    sum += arr[i];
+    cout << "\nItem " << i
+         << " | No VAT: " << arr[i][0]
+         << " | With VAT: " << arr[i][1];
+
+    sumNoVat += arr[i][0];
+    sumWithVat += arr[i][1];
   }
 
-  cout << "\nThe total is: " << sum;
+  cout << "\nTotal without VAT: " << sumNoVat;
+  cout << "\nTotal with VAT: " << sumWithVat;
 }
 
 /**
