@@ -90,6 +90,7 @@ int main() {
 
   default:
     cout << "\nUnexpected error: invalid menu option.";
+  }
   } while (choice != 0);
 
   cout << "\nHave a nice day:)" << endl;
