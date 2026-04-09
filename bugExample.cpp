@@ -36,6 +36,7 @@ void revertNumbers(int arr[], const int size);
 int main() {
   int choice;
   const int SIZE = 10;
+  double avgOdd = 0.0;
 
   // Initialize array price
   int price[SIZE] = {12, 4, 8, 1, 17, 2, 4, 2, 9, 1};
@@ -66,13 +67,29 @@ int main() {
           cout << "\nAt least one elements is not positive.";
         } 
         break;
-      // Exit
-      case 0:
-        // No code needed
-        break;
-      default:
-        cout << "\nUnexpected error: invalid menu option.";
+      case 5:
+    cout << "\nThe sum of odd numbers is: "
+         << sumOddArray(quantity, SIZE);
+    break;
+
+  case 6:
+    if (avgOddArray(quantity, SIZE, avgOdd)){
+      cout << "\nThe average of odd numbers is: " << avgOdd;
+    } else {
+      cout << "\nThere are no odd numbers in the array.";
     }
+    break;
+
+  case 7:
+    revertNumbers(quantity, SIZE);
+    cout << "\nThe quantity array has been reverted.";
+    break;
+
+  case 0:
+    break;
+
+  default:
+    cout << "\nUnexpected error: invalid menu option.";
   } while (choice != 0);
 
   cout << "\nHave a nice day:)" << endl;
@@ -94,15 +111,18 @@ int printMenu(){
     cout << "\n2) Calculate total";
     cout << "\n3) Print total";
     cout << "\n4) All positive?";
+    cout << "\n5) Sum odd numbers";
+    cout << "\n6) Average odd numbers";
+    cout << "\n7) Revert quantity array";
     cout << "\n0) Exit";
 
     cout << "\nEnter the choice: ";
     cin >> choice;
 
-    if (choice < 0 || choice > 4){
+    if (choice < 0 || choice > 7){
       cout << "\nWrong choice, try again.";
     }
-  } while (choice < 0 || choice > 4);
+  } while (choice < 0 || choice > 7);
   return choice;
 }
 
