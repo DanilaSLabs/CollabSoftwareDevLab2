@@ -38,6 +38,9 @@ int main() {
   const int SIZE = 10;
   double avgOdd = 0.0;
 
+  bool quantityEntered = false;
+  bool totalCalculated = false;
+
   // Initialize array price
   int price[SIZE] = {12, 4, 8, 1, 17, 2, 4, 2, 9, 1};
   // Declare array quantity and total
@@ -48,31 +51,55 @@ int main() {
     choice = printMenu();
 
     switch (choice){
-      // Enter quantity
-      case 1:
-        fillInArray(quantity, SIZE);
-        break;
-      // Calculate total
-      case 2:
-        multArrays(quantity, price, total, SIZE);
-        break;
-      // Print total
-      case 3:
-        displayArray(total, SIZE);
-        break;
-      case 4:
-        if (isAllPositive(quantity, SIZE)){
-          cout << "\nAll elements of the array are positive.";
-        } else {
-          cout << "\nAt least one elements is not positive.";
-        } 
-        break;
-      case 5:
+
+  case 1:
+    fillInArray(quantity, SIZE);
+    quantityEntered = true;
+    break;
+
+  case 2:
+    if (!quantityEntered){
+      cout << "\nPlease enter quantity first.";
+      break;
+    }
+    multArrays(quantity, price, total, SIZE);
+    totalCalculated = true;
+    break;
+
+  case 3:
+    if (!totalCalculated){
+      cout << "\nPlease calculate total first.";
+      break;
+    }
+    displayArray(total, SIZE);
+    break;
+
+  case 4:
+    if (!quantityEntered){
+      cout << "\nPlease enter quantity first.";
+      break;
+    }
+    if (isAllPositive(quantity, SIZE)){
+      cout << "\nAll elements of the array are positive.";
+    } else {
+      cout << "\nAt least one element is not positive.";
+    }
+    break;
+
+  case 5:
+    if (!quantityEntered){
+      cout << "\nPlease enter quantity first.";
+      break;
+    }
     cout << "\nThe sum of odd numbers is: "
          << sumOddArray(quantity, SIZE);
     break;
 
   case 6:
+    if (!quantityEntered){
+      cout << "\nPlease enter quantity first.";
+      break;
+    }
     if (avgOddArray(quantity, SIZE, avgOdd)){
       cout << "\nThe average of odd numbers is: " << avgOdd;
     } else {
@@ -81,6 +108,10 @@ int main() {
     break;
 
   case 7:
+    if (!quantityEntered){
+      cout << "\nPlease enter quantity first.";
+      break;
+    }
     revertNumbers(quantity, SIZE);
     cout << "\nThe quantity array has been reverted.";
     break;
@@ -90,7 +121,7 @@ int main() {
 
   default:
     cout << "\nUnexpected error: invalid menu option.";
-  }
+}
   } while (choice != 0);
 
   cout << "\nHave a nice day:)" << endl;
