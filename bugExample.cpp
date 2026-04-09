@@ -200,7 +200,7 @@ void multArrays(const int arrQuantity[], const int arrPrice[], int arrTotal[], c
  * @param ar The array containing the values
  * @param size The size of the array.
  */
-void displayArray(const int arr[], int size){
+void displayArray(const int arr[], const int size){
   int sum = 0;
 
   for (int i = 0; i < size; ++i){
