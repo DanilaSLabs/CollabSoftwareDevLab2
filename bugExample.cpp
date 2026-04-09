@@ -227,6 +227,7 @@ bool avgOddArray(const int arr[], const int size, double& avgOdd){
   for(int i = 0; i < size; i++){
     if(arr[i] % 2 != 0){
       sumOdd += arr[i];
+      countOdd++;
     }
   }
   if(countOdd == 0){
