@@ -180,7 +180,7 @@ bool isAllPositive(const int arr[], const int size){
 
 // Finds the average of all the odd numbers in the array and stores this in the last argument
 // returns false if there are no odd numbers in the array, true otherwise.
-bool avgOddArray(const int arr[], const int size, int& avgOdd){
+bool avgOddArray(const int arr[], const int size, double& avgOdd){
   //@TODO: You will need to complete this. Including making the appropriate comment header
   return false;
 }
