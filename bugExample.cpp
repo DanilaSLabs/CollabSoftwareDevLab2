@@ -215,8 +215,18 @@ bool avgOddArray(const int arr[], const int size, double& avgOdd){
   return true;
 }
 
-// You revert the numbers (in place) of the array. I.e. if your array have the values [1, 3, 4, 7, 11] then
-// after calling this function the values in the array should be [11, 7, 4, 3, 1]
+/**
+ * <code>revertNumbers</code> reverses the elements of the array in place.
+ * <BR>
+ * @param arr The array to be reversed.
+ * @param size The size of the array.
+ */
 void revertNumbers(int arr[], const int size) {
-  //@TODO: You will need to complete this. Including making the appropriate comment header
+  assert(size > 0);
+
+  for(int i = 0; i < size/2; i++){
+    int temp = arr[i];
+    arr[i] = arr[size-i-1];
+    arr[size-i-1] = temp;
+  }
 }
