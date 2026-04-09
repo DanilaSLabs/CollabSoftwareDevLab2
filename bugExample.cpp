@@ -198,8 +198,13 @@ int sumOddArray(const int arr[], const int size){
   return sumOdd;
 }
 
-// If all the values in the array are positive return true
-// Returns false for any element that is zero or negative
+/**
+ * <code>isAllPositive</code> checks if all elements in the array are positive.
+ * <BR>
+ * @param arr The source array.
+ * @param size The size of the array.
+ * @return Returns true if all elements are positive, false otherwise.
+ */
 bool isAllPositive(const int arr[], const int size){
   bool res = true;
   for(int i = 0; i < size; i++){
