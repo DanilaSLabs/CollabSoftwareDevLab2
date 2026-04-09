@@ -71,7 +71,7 @@ int main() {
         // No code needed
         break;
       default:
-        assert(true);
+        cout << "\nUnexpected error: invalid menu option.";
     }
   } while (choice != 0);
 
